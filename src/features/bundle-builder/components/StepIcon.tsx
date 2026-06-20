@@ -8,8 +8,12 @@ type StepIconProps = {
 
 export function StepIcon({ stepId }: StepIconProps) {
   return (
-    <span className="flex h-11 w-10 shrink-0 items-center justify-center text-icon-muted">
-      <Icon name={stepIconNameById[stepId]} size={28} />
+    <span className="flex h-5 w-5 shrink-0 items-center justify-center text-icon-muted sm:h-11 sm:w-10">
+      <Icon
+        className="h-5 w-5 sm:h-7 sm:w-7"
+        name={stepIconNameById[stepId]}
+        size={28}
+      />
     </span>
   )
 }

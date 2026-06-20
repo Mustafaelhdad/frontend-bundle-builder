@@ -41,11 +41,11 @@ export function BundleBuilder() {
   )
 
   return (
-    <main className="min-h-screen bg-page px-4 py-[31px] text-text sm:px-6 md:px-8 xl:px-12 xl:py-[49px]">
+    <main className="min-h-screen bg-page px-0 py-[31px] text-text sm:px-6 md:px-8 xl:px-12 xl:py-[49px]">
       <div className="mx-auto grid max-w-[1440px] gap-5 md:gap-7 xl:grid-cols-[minmax(0,768px)_399px] xl:items-start xl:justify-center xl:gap-[29px]">
         <section className="w-full max-w-[768px] justify-self-center space-y-[13px] xl:justify-self-end">
           <BuilderHeader />
-          <div className="space-y-[13px]">
+          <div className="space-y-0 sm:space-y-[13px]">
             {bundleBuilderData.steps.map((step) => {
               const stepProducts = getStepProducts(
                 step.productIds,

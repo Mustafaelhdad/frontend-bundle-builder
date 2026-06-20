@@ -15,6 +15,8 @@ export type IconName =
   | 'security-camera-step'
   | 'sensor-step'
   | 'shield'
+  | 'step-arrow-down'
+  | 'step-arrow-up'
   | 'truck'
 
 export type IconProps = SVGAttributes<SVGSVGElement> & {
@@ -412,6 +414,24 @@ const iconDefinitions: Record<IconName, IconDefinition> = {
         stroke="currentColor"
         strokeLinejoin="round"
         strokeWidth="1.7"
+      />
+    ),
+  },
+  'step-arrow-down': {
+    viewBox: '0 0 12 12',
+    paths: (
+      <path
+        d="M6.40682 9.43039C6.20741 9.70956 5.7925 9.70956 5.59309 9.43038L1.56472 3.79062C1.32834 3.45968 1.5649 3 1.97159 3L10.0284 3C10.4351 3 10.6716 3.45969 10.4353 3.79062L6.40682 9.43039Z"
+        fill="currentColor"
+      />
+    ),
+  },
+  'step-arrow-up': {
+    viewBox: '0 0 12 12',
+    paths: (
+      <path
+        d="M5.59318 2.56961C5.79259 2.29044 6.2075 2.29044 6.40691 2.56962L10.4353 8.20938C10.6717 8.54032 10.4351 9 10.0284 9H1.9716C1.56491 9 1.32835 8.54031 1.56473 8.20938L5.59318 2.56961Z"
+        fill="currentColor"
       />
     ),
   },

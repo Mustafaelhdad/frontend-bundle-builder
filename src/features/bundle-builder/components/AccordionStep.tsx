@@ -22,42 +22,66 @@ export function AccordionStep({
 }: AccordionStepProps) {
   const panelId = `bundle-step-panel-${step.id}`
   const headerId = `bundle-step-header-${step.id}`
+  const arrowIcon = isOpen ? 'step-arrow-up' : 'step-arrow-down'
 
   return (
-    <article className="overflow-hidden rounded-card border border-border-soft bg-surface">
+    <article className="overflow-hidden rounded-none bg-surface sm:rounded-card sm:border sm:border-border-soft">
       <button
         aria-controls={panelId}
         aria-expanded={isOpen}
         className={cn(
-          'flex min-h-16 w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-primary-soft/60 focus-visible:outline-none sm:px-5',
+          'w-full text-left transition-colors hover:bg-primary-soft/60 focus-visible:outline-none',
           isOpen && 'bg-surface-tinted/70',
         )}
         id={headerId}
         onClick={onOpen}
         type="button"
       >
-        <StepIcon stepId={step.id} />
-        <span className="min-w-0 flex-1">
-          <span className="block text-[11px] font-semibold tracking-[0.18em] text-text-muted">
+        <span className="block sm:hidden">
+          <span
+            className={cn(
+              'block border-b border-border px-5 py-2 text-[10px] font-medium uppercase leading-none tracking-[1.6px] text-[#484848]',
+              step.order > 1 && 'border-t',
+            )}
+          >
             {step.eyebrow}
           </span>
-          <span className="mt-1 block text-lg font-semibold leading-none tracking-[0.03em] text-text">
-            {step.title}
+          <span className="flex min-h-[74px] items-center gap-3 px-5 py-4">
+            <StepIcon stepId={step.id} />
+            <span className="min-w-0 flex-1 text-lg font-semibold leading-none tracking-normal text-[#0b0d10]">
+              {step.title}
+            </span>
+            <span className="flex shrink-0 items-center gap-1 text-center text-sm font-medium leading-4 text-primary">
+              {selectedCount} selected
+              <Icon name={arrowIcon} size={12} />
+            </span>
           </span>
         </span>
-        <span className="flex shrink-0 items-center gap-2 text-sm font-semibold text-primary">
-          {isOpen ? `${selectedCount} selected` : null}
-          <Icon name={isOpen ? 'chevron-up' : 'chevron-down'} size={20} />
+        <span className="hidden min-h-16 items-center gap-3 px-4 py-3 sm:flex sm:px-5">
+          <StepIcon stepId={step.id} />
+          <span className="min-w-0 flex-1">
+            <span className="block text-[11px] font-semibold tracking-[0.18em] text-text-muted">
+              {step.eyebrow}
+            </span>
+            <span className="mt-1 block text-lg font-semibold leading-none tracking-[0.03em] text-text">
+              {step.title}
+            </span>
+          </span>
+          <span className="flex shrink-0 items-center gap-2 text-sm font-semibold text-primary">
+            {isOpen ? `${selectedCount} selected` : null}
+            <Icon name={isOpen ? 'chevron-up' : 'chevron-down'} size={20} />
+          </span>
         </span>
       </button>
 
       {isOpen ? (
         <div
           aria-labelledby={headerId}
-          className="border-t border-border-soft bg-surface-tinted/70 px-3 py-4 sm:px-5 sm:py-5"
+          className="bg-surface-tinted/70 px-3 py-4 sm:border-t sm:border-border-soft sm:px-5 sm:py-5"
           id={panelId}
           role="region"
         >
+          <div className="-mx-3 -mt-4 mb-4 border-t border-border-soft sm:hidden" />
           {products.length > 0 ? (
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,210px),1fr))] gap-[13px] md:grid-cols-[repeat(3,224.6px)] md:justify-center">
               {products.map((product) => (

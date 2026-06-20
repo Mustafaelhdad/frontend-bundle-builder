@@ -95,7 +95,7 @@ export function ReviewPanel() {
   return (
     <aside
       aria-label={bundleBuilderData.reviewPanel.title}
-      className="w-full max-w-[768px] justify-self-center rounded-card bg-surface-tinted p-4 text-text shadow-sm xl:sticky xl:top-[49px] xl:max-h-[855px] xl:max-w-[399px] xl:justify-self-start xl:overflow-auto xl:p-[15px]"
+      className="w-full max-w-[768px] justify-self-center rounded-none bg-surface-tinted p-4 text-text shadow-none sm:rounded-card sm:shadow-sm xl:sticky xl:top-[49px] xl:max-h-[855px] xl:max-w-[399px] xl:justify-self-start xl:overflow-auto xl:p-[15px]"
     >
       <div className="space-y-4 xl:space-y-[5px]">
         <div className="space-y-1 xl:space-y-[5px]">
