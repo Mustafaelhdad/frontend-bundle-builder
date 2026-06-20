@@ -74,9 +74,9 @@
       "learnMoreHref": "#",
       "badgeLabel": "Save 22%",
       "image": {
-        "assetKey": "wyze-cam-v4-white",
+        "assetKey": "wyze-cam-v4-main",
         "alt": "White Wyze Cam v4",
-        "figmaNodeId": "1:185"
+        "figmaNodeId": "1:176"
       },
       "price": {
         "compareAtCents": 3598,
@@ -137,8 +137,8 @@
       "learnMoreHref": "#",
       "badgeLabel": "Save 12%",
       "image": {
-        "assetKey": "wyze-cam-pan-v3-white",
-        "alt": "White Wyze Cam Pan v3",
+        "assetKey": "wyze-cam-pan-v3-main",
+        "alt": "Wyze Cam Pan v3",
         "figmaNodeId": "1:205"
       },
       "price": {
@@ -185,8 +185,8 @@
       "learnMoreHref": "#",
       "badgeLabel": "Save 22%",
       "image": {
-        "assetKey": "wyze-cam-floodlight-v2-white",
-        "alt": "White Wyze Cam Floodlight v2",
+        "assetKey": "wyze-cam-floodlight-v2-main",
+        "alt": "Wyze Cam Floodlight v2",
         "figmaNodeId": "1:232"
       },
       "price": {
@@ -252,8 +252,8 @@
       "description": "Protect anywhere. See everything in 2.5K HDR. No power outlet or electrician needed.",
       "learnMoreHref": "#",
       "image": {
-        "assetKey": "wyze-battery-cam-pro-white",
-        "alt": "White Wyze Battery Cam Pro",
+        "assetKey": "wyze-battery-cam-pro-main",
+        "alt": "Wyze Battery Cam Pro",
         "figmaNodeId": "1:272"
       },
       "price": {
