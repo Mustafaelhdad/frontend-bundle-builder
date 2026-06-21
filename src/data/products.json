@@ -318,6 +318,7 @@
       "stepId": "sensors",
       "categoryId": "sensors",
       "name": "Wyze Sense Motion Sensor",
+      "description": "Detect movement and receive alerts throughout your home.",
       "image": {
         "assetKey": "wyze-sense-motion-sensor",
         "alt": "Wyze Sense Motion Sensor",
@@ -336,7 +337,7 @@
       "stepId": "sensors",
       "categoryId": "sensors",
       "name": "Wyze Sense Hub",
-      "description": "Required",
+      "description": "Connects your Wyze Sense sensors to your security system.",
       "image": {
         "assetKey": "wyze-sense-hub",
         "alt": "Wyze Sense Hub",
@@ -359,6 +360,7 @@
       "stepId": "extra-protection",
       "categoryId": "accessories",
       "name": "Wyze MicroSD Card (256GB)",
+      "description": "Add continuous local recording and extra video storage.",
       "image": {
         "assetKey": "wyze-microsd-card-256gb",
         "alt": "Wyze MicroSD Card 256GB",
@@ -510,7 +512,7 @@
       }
     },
     "returnsLabel": "30-day hassle-free returns",
-    "financingLabel": "as low as $19/mo",
+    "financingLabel": "as low as $19.19/mo",
     "totals": {
       "compareAtCents": 23881,
       "priceCents": 18789,

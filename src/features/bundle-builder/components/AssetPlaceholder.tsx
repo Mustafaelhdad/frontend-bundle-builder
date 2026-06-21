@@ -13,6 +13,10 @@ import wyzeCamV4Black from '../../../assets/products/wyze-cam-v4/Wyze Cam v4 bla
 import wyzeCamV4Grey from '../../../assets/products/wyze-cam-v4/Wyze Cam v4 grey.png'
 import wyzeCamV4White from '../../../assets/products/wyze-cam-v4/Wyze Cam v4 white.png'
 import wyzeCamV4Main from '../../../assets/products/wyze-cam-v4/Wyze_Cam_V4_01.0001.png'
+import wyzeMicroSdCard from '../../../assets/products/Wyze-MicroSD-Card-(256GB)/Wyze-MicroSD-Card-(256GB).png'
+import wyzeSenseHub from '../../../assets/products/Wyze-Sense-Hub/Wyze-Sense-Hub.png'
+import wyzeSenseMotionSensor from '../../../assets/products/Wyze-Sense-Motion-Sensor/Wyze-Sense-Motion-Sensor.png'
+import satisfactionGuaranteeBadge from '../../../assets/satisfaction badge.png'
 import { Icon, type IconName } from '../../../components/ui'
 
 type AssetPlaceholderProps = {
@@ -73,6 +77,10 @@ const assetImageByKey: Record<string, string> = {
   'wyze-cam-v4-main': wyzeCamV4Main,
   'wyze-cam-v4-white': wyzeCamV4White,
   'wyze-duo-cam-doorbell': wyzeDuoCamDoorbell,
+  'wyze-microsd-card-256gb': wyzeMicroSdCard,
+  'wyze-sense-hub': wyzeSenseHub,
+  'wyze-sense-motion-sensor': wyzeSenseMotionSensor,
+  'satisfaction-guarantee-badge': satisfactionGuaranteeBadge,
 }
 
 const assetIconByKey: Record<string, IconName> = {

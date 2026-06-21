@@ -39,21 +39,37 @@ export function BundleBuilder() {
       ),
     [],
   )
+  const includedItemsById = useMemo(
+    () =>
+      new Map(
+        bundleBuilderData.includedReviewItems.map((item) => [item.id, item]),
+      ),
+    [],
+  )
 
   return (
-    <main className="min-h-screen bg-page px-0 py-[31px] text-text sm:px-6 md:px-8 xl:px-12 xl:py-[49px]">
-      <div className="mx-auto grid max-w-[1440px] gap-5 md:gap-7 xl:grid-cols-[minmax(0,768px)_399px] xl:items-start xl:justify-center xl:gap-[29px]">
-        <section className="w-full max-w-[768px] justify-self-center space-y-[13px] xl:justify-self-end">
-          <BuilderHeader />
+    <main className="min-h-screen bg-page px-0 py-[31px] text-text sm:px-6 md:px-8 xl:px-8 xl:py-[49px] 2xl:px-[122px]">
+      <div className="mx-auto grid max-w-[1440px] gap-5 md:gap-7 xl:grid-cols-[minmax(0,768px)_399px] xl:items-start xl:justify-center xl:gap-[29px] 2xl:max-w-none 2xl:grid-cols-1 2xl:gap-[33px]">
+        <section className="w-full max-w-[768px] justify-self-center space-y-[13px] xl:justify-self-end 2xl:max-w-none 2xl:justify-self-center">
+          <div className="sm:hidden">
+            <BuilderHeader />
+          </div>
           <div className="space-y-0 sm:space-y-[13px]">
             {bundleBuilderData.steps.map((step) => {
               const stepProducts = getStepProducts(
                 step.productIds,
                 productsById,
               )
+              const stepIncludedItems = step.includedItemIds.flatMap(
+                (includedItemId) => {
+                  const item = includedItemsById.get(includedItemId)
+                  return item ? [item] : []
+                },
+              )
 
               return (
                 <AccordionStep
+                  includedItems={stepIncludedItems}
                   isOpen={activeStepId === step.id}
                   key={step.id}
                   onNext={step.nextButtonLabel ? advanceToNextStep : undefined}
