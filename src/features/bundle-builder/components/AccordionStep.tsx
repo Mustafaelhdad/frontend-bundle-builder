@@ -35,16 +35,16 @@ export function AccordionStep({
   return (
     <article
       className={cn(
-        'overflow-hidden rounded-none bg-surface sm:border sm:border-border-soft 2xl:border-0',
+        'overflow-hidden rounded-none bg-surface sm:border sm:border-border-soft md:border-0 2xl:border-0',
         isOpen &&
-          '2xl:rounded-[10px] 2xl:border-0 2xl:bg-surface-tinted 2xl:pt-[15px]',
+          'md:flex md:flex-col md:gap-[15px] md:rounded-[10px] md:border-0 md:bg-surface-tinted md:pt-[15px] 2xl:block 2xl:pt-[15px]',
       )}
     >
       <button
         aria-controls={panelId}
         aria-expanded={isOpen}
         className={cn(
-          'w-full text-left transition-colors hover:bg-primary-soft/60 focus-visible:outline-none 2xl:block 2xl:hover:bg-transparent',
+          'w-full text-left focus-visible:outline-none 2xl:block',
           isOpen && 'bg-surface-tinted/70',
           isOpen && '2xl:bg-transparent',
         )}
@@ -72,20 +72,49 @@ export function AccordionStep({
             </span>
           </span>
         </span>
-        <span className="hidden sm:block 2xl:hidden">
-          <span className="flex min-h-16 items-center gap-3 px-4 py-3 sm:px-5 xl:min-h-12 xl:px-3 xl:py-2">
+        <span className="hidden sm:block md:hidden">
+          <span className="flex min-h-16 items-center gap-3 px-4 py-3 sm:px-5">
             <StepIcon stepId={step.id} />
             <span className="min-w-0 flex-1">
-              <span className="block text-[11px] font-semibold tracking-[0.18em] text-text-muted xl:text-[9px]">
+              <span className="block text-[11px] font-semibold tracking-[0.18em] text-text-muted">
                 {step.eyebrow}
               </span>
-              <span className="mt-1 block text-lg font-semibold leading-none tracking-[0.03em] text-text xl:text-base xl:tracking-normal">
+              <span className="mt-1 block text-lg font-semibold leading-none tracking-[0.03em] text-text">
                 {step.title}
               </span>
             </span>
-            <span className="flex shrink-0 items-center gap-2 text-sm font-semibold text-primary xl:text-xs">
+            <span className="flex shrink-0 items-center gap-2 text-sm font-semibold text-primary">
               {isOpen ? `${selectedCount} selected` : null}
               <Icon name={isOpen ? 'chevron-up' : 'chevron-down'} size={16} />
+            </span>
+          </span>
+        </span>
+        <span className="hidden md:block 2xl:hidden">
+          <span
+            className={cn(
+              'block px-[15px] font-medium uppercase tracking-[1.6px] text-[#484848]',
+              isOpen
+                ? 'border-b-[0.5px] border-[#1F1F1F] pb-[5px] text-[12px] leading-3'
+                : 'h-[10px] text-[10px] leading-[10px]',
+            )}
+          >
+            {step.eyebrow}
+          </span>
+          <span
+            className={cn(
+              'mt-[5px] flex items-center gap-2 px-[15px]',
+              isOpen
+                ? 'h-[46px] pb-0 pt-5'
+                : 'h-[67px] border-y-[0.5px] border-[#1F1F1F] py-5',
+            )}
+          >
+            <StepIcon stepId={step.id} />
+            <span className="min-w-0 flex-1 text-[22px] font-semibold leading-none tracking-normal text-[#0b0d10]">
+              {step.title}
+            </span>
+            <span className="flex shrink-0 items-center gap-1 text-center text-[16px] font-normal leading-[26px] text-primary">
+              {isOpen ? `${selectedCount} selected` : null}
+              <Icon name={arrowIcon} size={12} />
             </span>
           </span>
         </span>
@@ -99,7 +128,7 @@ export function AccordionStep({
             className={cn(
               'block text-[12px] font-medium uppercase tracking-[1.6px] text-[#484848]',
               isOpen
-                ? 'border-b border-border px-3 pb-1 leading-none'
+                ? 'border-b-[0.5px] border-[#1F1F1F] px-3 pb-1 leading-none'
                 : 'h-3 px-[15px] leading-3',
             )}
           >
@@ -128,7 +157,7 @@ export function AccordionStep({
       {isOpen ? (
         <div
           aria-labelledby={headerId}
-          className="bg-surface-tinted/70 px-3 py-4 sm:border-t sm:border-border-soft sm:px-5 sm:py-5 xl:px-[10px] xl:py-[10px] 2xl:border-t-0 2xl:px-[11px] 2xl:pb-[15px]"
+          className="bg-surface-tinted/70 px-3 py-4 sm:border-t sm:border-border-soft sm:px-5 sm:py-5 md:border-t-0 md:bg-surface-tinted md:px-[15px] md:pb-[31px] md:pt-0 2xl:px-[11px] 2xl:pb-[15px]"
           id={panelId}
           role="region"
         >
@@ -138,15 +167,26 @@ export function AccordionStep({
               className={cn(
                 'grid grid-cols-[repeat(auto-fit,minmax(min(100%,210px),1fr))] gap-[13px]',
                 cardCount >= 5
-                  ? 'xl:grid-cols-5 xl:gap-[8px] 2xl:grid-cols-[repeat(5,224.6px)] 2xl:justify-center 2xl:gap-[17px]'
-                  : 'sm:grid-cols-[repeat(auto-fit,224.6px)] sm:justify-center xl:grid-cols-[repeat(auto-fit,224.6px)] xl:justify-center xl:gap-[8px] 2xl:grid-cols-[repeat(auto-fit,224.6px)] 2xl:justify-center 2xl:gap-[17px]',
+                  ? 'md:grid-cols-2 md:gap-[15px] 2xl:grid-cols-[repeat(5,224.6px)] 2xl:justify-center 2xl:gap-[17px]'
+                  : 'sm:grid-cols-[repeat(auto-fit,224.6px)] sm:justify-center md:grid-cols-2 md:justify-stretch md:gap-[15px] 2xl:grid-cols-[repeat(auto-fit,224.6px)] 2xl:justify-center 2xl:gap-[17px]',
               )}
             >
-              {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
+              {products.map((product, index) => (
+                <ProductCard
+                  className={getCompactCardClassName(index, cardCount)}
+                  key={product.id}
+                  product={product}
+                />
               ))}
-              {includedItems.map((item) => (
-                <IncludedItemCard item={item} key={item.id} />
+              {includedItems.map((item, index) => (
+                <IncludedItemCard
+                  className={getCompactCardClassName(
+                    products.length + index,
+                    cardCount,
+                  )}
+                  item={item}
+                  key={item.id}
+                />
               ))}
             </div>
           ) : (
@@ -157,9 +197,9 @@ export function AccordionStep({
           )}
 
           {step.nextButtonLabel && onNext ? (
-            <div className="mt-[10px] flex justify-center">
+            <div className="mt-[20px] flex justify-center 2xl:mt-[10px]">
               <Button
-                className="w-full rounded-[6px] sm:w-auto xl:min-h-8 xl:px-8 xl:py-1 xl:text-xs 2xl:h-[39px] 2xl:min-h-[39px] 2xl:w-auto 2xl:min-w-[266px] 2xl:max-w-full 2xl:whitespace-nowrap 2xl:rounded-[7px] 2xl:border-[#4E2FD2] 2xl:px-6 2xl:py-[5px] 2xl:text-[18px] 2xl:leading-6 2xl:tracking-normal 2xl:text-[#4E2FD2]"
+                className="w-full rounded-[6px] sm:w-auto md:h-[39px] md:min-h-[39px] md:min-w-[266px] md:max-w-full md:whitespace-nowrap md:rounded-[7px] md:border-[#4E2FD2] md:px-6 md:py-[5px] md:text-[18px] md:leading-6 md:tracking-normal md:text-[#4E2FD2]"
                 onClick={onNext}
                 variant="outline"
               >
@@ -171,4 +211,12 @@ export function AccordionStep({
       ) : null}
     </article>
   )
+}
+
+function getCompactCardClassName(index: number, cardCount: number) {
+  if (cardCount % 2 === 1 && cardCount > 1 && index === cardCount - 1) {
+    return 'md:col-span-2 md:mx-auto md:w-[calc((100%_-_15px)/2)] 2xl:col-span-1 2xl:mx-0 2xl:w-[224.6px]'
+  }
+
+  return undefined
 }

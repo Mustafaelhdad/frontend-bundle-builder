@@ -102,21 +102,26 @@ export function ReviewPanel() {
   return (
     <aside
       aria-label={bundleBuilderData.reviewPanel.title}
-      className="w-full max-w-[768px] justify-self-center rounded-none bg-surface-tinted p-4 text-text shadow-none sm:rounded-card sm:shadow-sm xl:sticky xl:top-[49px] xl:max-h-[855px] xl:max-w-[399px] xl:justify-self-start xl:overflow-auto xl:p-[15px] 2xl:static 2xl:min-h-[658px] 2xl:max-h-none 2xl:w-full 2xl:max-w-none 2xl:justify-self-stretch 2xl:overflow-visible 2xl:rounded-[10px] 2xl:p-0 2xl:shadow-none"
+      className="w-full max-w-[768px] justify-self-center rounded-none bg-surface-tinted p-4 text-text shadow-none sm:rounded-card sm:shadow-sm md:sticky md:top-[49px] md:w-[399px] md:max-w-[399px] md:overflow-visible md:rounded-[10px] md:bg-[#EDF4FF] md:px-0 md:pb-[31px] md:pt-[15px] md:shadow-none xl:justify-self-start 2xl:static 2xl:min-h-[658px] 2xl:w-full 2xl:max-w-none 2xl:justify-self-stretch 2xl:overflow-visible 2xl:rounded-[10px] 2xl:bg-surface-tinted 2xl:p-0 2xl:shadow-none"
     >
-      <div className="space-y-4 xl:space-y-[5px] 2xl:mx-auto 2xl:grid 2xl:min-h-[658px] 2xl:w-[1213px] 2xl:grid-cols-[552px_486px] 2xl:items-start 2xl:gap-x-[52px] 2xl:px-[61.5px] 2xl:py-[35px] 2xl:space-y-0">
-        <div className="space-y-4 xl:space-y-[5px] 2xl:flex 2xl:min-h-[588px] 2xl:w-[552px] 2xl:flex-col 2xl:gap-[7.5px] 2xl:space-y-0">
-          <div className="space-y-1 xl:space-y-[5px] 2xl:h-[70px] 2xl:space-y-0">
-            <h2 className="text-2xl font-semibold tracking-[-0.03em] 2xl:h-7 2xl:text-[28px] 2xl:leading-7 2xl:tracking-[0.6px]">
-              {bundleBuilderData.reviewPanel.title}
-            </h2>
-            <p className="text-sm leading-6 text-text-muted 2xl:h-[42px] 2xl:text-[16px] 2xl:leading-[1.3] 2xl:tracking-[0.6px] 2xl:text-[#1F1F1F]/75">
-              Review your personalized protection system designed to keep what
-              matters most safe.
+      <div className="space-y-4 md:flex md:w-full md:flex-col md:gap-[10px] md:space-y-0 2xl:mx-auto 2xl:grid 2xl:min-h-[658px] 2xl:w-[1213px] 2xl:grid-cols-[552px_486px] 2xl:items-start 2xl:gap-x-[52px] 2xl:px-[61.5px] 2xl:py-[35px] 2xl:space-y-0">
+        <div className="space-y-4 md:flex md:w-full md:flex-col md:gap-[10px] md:space-y-0 2xl:flex 2xl:min-h-[588px] 2xl:w-[552px] 2xl:flex-col 2xl:gap-[7.5px] 2xl:space-y-0">
+          <div className="space-y-1 md:flex md:w-full md:flex-col md:gap-[25px] md:space-y-0 2xl:h-[70px] 2xl:gap-0 2xl:space-y-0">
+            <p className="hidden text-[12px] font-medium uppercase leading-3 tracking-[1.6px] text-[#484848] md:flex md:h-3 md:w-full md:px-[15px] 2xl:hidden">
+              Review
             </p>
+            <div className="space-y-1 md:flex md:w-full md:flex-col md:gap-[5px] md:space-y-0">
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] md:ml-[20px] md:h-[22px] md:w-[350px] md:text-[22px] md:leading-none md:tracking-[0.6px] 2xl:ml-0 2xl:mr-auto 2xl:h-7 2xl:w-auto 2xl:self-start 2xl:text-left 2xl:text-[28px] 2xl:leading-7 2xl:tracking-[0.6px]">
+                {bundleBuilderData.reviewPanel.title}
+              </h2>
+              <p className="text-sm leading-6 text-text-muted md:ml-[20px] md:h-9 md:w-[350px] md:text-[14px] md:font-medium md:leading-[1.3] md:tracking-[0.6px] md:text-[#1F1F1F]/75 2xl:mx-auto 2xl:h-[42px] 2xl:w-auto 2xl:text-[16px] 2xl:leading-[1.3] 2xl:tracking-[0.6px] 2xl:text-[#1F1F1F]/75">
+                Review your personalized protection system designed to keep what
+                matters most safe.
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-4 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 xl:block xl:space-y-[5px] 2xl:block 2xl:space-y-[21px]">
+          <div className="space-y-4 md:ml-[20px] md:block md:w-[350px] md:space-y-[10px] 2xl:mx-auto 2xl:block 2xl:w-auto 2xl:space-y-[21px]">
             {bundleBuilderData.reviewPanel.categories.map((category) => {
               const categoryLines = reviewLines.filter(
                 (line) => line.categoryId === category.id,
@@ -130,24 +135,22 @@ export function ReviewPanel() {
               return (
                 <section
                   className={cn(
-                    'space-y-2 xl:space-y-[5px] 2xl:border-t 2xl:border-[#CED6DE] 2xl:pt-[15px] 2xl:space-y-0',
-                    isPlanCategory &&
-                      '2xl:flex 2xl:h-[70px] 2xl:flex-col 2xl:gap-2',
+                    'space-y-2 md:flex md:w-full md:flex-col md:gap-2 md:space-y-0 md:border-t md:border-[#CED6DE] md:pt-[15px] 2xl:border-t 2xl:border-[#CED6DE] 2xl:pt-[15px]',
+                    isPlanCategory && 'md:h-[70px] md:flex-col md:gap-2',
                   )}
                   key={category.id}
                 >
                   <h3
                     className={cn(
-                      'text-xs font-semibold uppercase tracking-[0.18em] text-text-muted 2xl:h-[10px] 2xl:text-[10px] 2xl:font-normal 2xl:leading-[10px] 2xl:tracking-[0.5px] 2xl:text-[#9BA6B2]',
-                      !isPlanCategory && '2xl:mb-0.5',
+                      'text-xs font-semibold uppercase tracking-[0.18em] text-text-muted md:h-4 md:text-[12px] md:font-normal md:leading-4 md:tracking-[0.36px] md:text-[#A8B2BD]',
                     )}
                   >
                     {category.title}
                   </h3>
                   <div
                     className={cn(
-                      'space-y-2 xl:space-y-[5px] 2xl:space-y-[12px]',
-                      isPlanCategory && '2xl:h-[31px] 2xl:w-full 2xl:space-y-0',
+                      'space-y-2 md:space-y-[8px]',
+                      isPlanCategory && 'md:h-[31px] md:w-full md:space-y-0',
                     )}
                   >
                     {categoryLines.map((line) => (
@@ -167,7 +170,7 @@ export function ReviewPanel() {
           <ShippingRow />
         </div>
 
-        <div className="grid gap-3 md:grid-cols-2 xl:block xl:space-y-[5px] 2xl:hidden">
+        <div className="grid gap-3 md:hidden">
           <Guarantee />
 
           <div className="rounded-card bg-surface p-4 md:col-span-2 xl:col-auto xl:p-3">
@@ -192,7 +195,7 @@ export function ReviewPanel() {
             </div>
           </div>
 
-          <div className="space-y-2 md:col-span-2 md:mx-auto md:w-full md:max-w-sm xl:col-auto xl:max-w-none xl:space-y-[5px]">
+          <div className="space-y-2 md:col-span-2 md:mx-auto md:w-full md:max-w-sm">
             <Button fullWidth onClick={handleCheckout} size="lg">
               {bundleBuilderData.reviewPanel.actions.checkoutLabel}
             </Button>
@@ -201,6 +204,13 @@ export function ReviewPanel() {
             </Button>
           </div>
         </div>
+
+        <ReviewSummaryCompact
+          message={checkoutMessage ?? saveMessage}
+          onCheckout={handleCheckout}
+          onSave={handleSave}
+          totals={totals}
+        />
 
         <ReviewSummary2xl
           message={checkoutMessage ?? saveMessage}
@@ -211,7 +221,7 @@ export function ReviewPanel() {
 
         <div
           aria-live="polite"
-          className="min-h-6 text-sm text-text-muted 2xl:hidden"
+          className="min-h-6 text-sm text-text-muted md:hidden"
         >
           {checkoutMessage ?? saveMessage}
         </div>
@@ -234,34 +244,34 @@ function ReviewLine({
   return (
     <div
       className={cn(
-        'grid grid-cols-[44px_1fr] gap-3 rounded-card bg-surface p-3 xl:gap-2 xl:p-2 2xl:flex 2xl:w-full 2xl:items-center 2xl:rounded-none 2xl:bg-transparent 2xl:p-0',
-        isPlan ? '2xl:h-[31px] 2xl:gap-[3px]' : '2xl:h-[41px] 2xl:gap-4',
+        'grid grid-cols-[44px_1fr] gap-3 rounded-card bg-surface p-3 md:flex md:w-full md:items-center md:rounded-none md:bg-transparent md:p-0',
+        isPlan ? 'md:h-[31px] md:gap-[3px]' : 'md:min-h-[41px] md:gap-4',
       )}
     >
       <AssetPlaceholder
         asset={line.image}
         className={cn(
-          'flex h-11 w-11 items-center justify-center 2xl:shrink-0 2xl:overflow-hidden',
+          'flex h-11 w-11 items-center justify-center md:shrink-0 md:overflow-hidden',
           isPlan
-            ? '2xl:h-[31px] 2xl:w-[26px] 2xl:rounded-none 2xl:bg-transparent 2xl:[&_svg]:h-[31px] 2xl:[&_svg]:w-[26px]'
-            : '2xl:h-[41px] 2xl:w-[41px] 2xl:rounded-[5px] 2xl:bg-white',
+            ? 'md:h-[31px] md:w-[26px] md:rounded-none md:bg-transparent md:[&_svg]:h-[31px] md:[&_svg]:w-[26px]'
+            : 'md:h-[41px] md:w-[41px] md:rounded-[5px] md:bg-white',
         )}
       />
       <div
         className={cn(
-          'min-w-0 space-y-2 xl:space-y-1 2xl:flex-1 2xl:items-center 2xl:space-y-0',
+          'min-w-0 space-y-2 md:flex-1 md:items-center md:space-y-0',
           isPlan
-            ? '2xl:flex 2xl:h-[31px] 2xl:justify-between 2xl:gap-3'
-            : '2xl:grid 2xl:h-[41px] 2xl:grid-cols-[minmax(0,1fr)_72px_auto] 2xl:gap-x-3',
+            ? 'md:flex md:h-[31px] md:justify-between md:gap-3'
+            : 'md:grid md:min-h-[41px] md:grid-cols-[minmax(0,1fr)_72px_auto] md:items-center md:gap-x-3 2xl:grid-cols-[minmax(0,1fr)_72px_auto]',
         )}
       >
-        <div className="flex items-start justify-between gap-3 2xl:contents">
+        <div className="flex items-start justify-between gap-3 md:contents">
           <p
             className={cn(
-              'text-sm font-semibold leading-5 text-text 2xl:col-start-1 2xl:row-start-1 2xl:text-[#0B0D10]',
+              'text-sm font-semibold leading-5 text-text md:col-start-1 md:row-start-1 md:text-[#0B0D10]',
               isPlan
-                ? '2xl:h-5 2xl:w-auto 2xl:min-w-max 2xl:whitespace-nowrap 2xl:text-[20px] 2xl:font-bold 2xl:leading-5 2xl:tracking-[-0.04px]'
-                : '2xl:truncate 2xl:text-[18px] 2xl:font-normal 2xl:leading-4 2xl:tracking-[0.5px]',
+                ? 'md:h-4 md:w-auto md:min-w-max md:whitespace-nowrap md:text-[14px] md:font-bold md:leading-4 md:tracking-[-0.04px]'
+                : 'md:w-full md:text-[14px] md:font-medium md:leading-4 md:tracking-[0.5px] 2xl:w-auto 2xl:text-[18px] 2xl:font-normal',
             )}
           >
             <ReviewLineName line={line} />
@@ -277,17 +287,21 @@ function ReviewLine({
             priceLabel={line.price.priceLabel}
             size="sm"
             className={cn(
-              '2xl:flex-nowrap 2xl:[&>span]:text-[16px] 2xl:[&>span]:leading-4 2xl:[&>span]:tracking-[0.5px] 2xl:[&>span:first-child]:font-normal 2xl:[&>span:first-child]:text-[#6F7882] 2xl:[&>span:last-child]:font-semibold 2xl:[&>span:last-child]:text-[#4E2FD2] 2xl:[&>span:last-child>span]:font-semibold 2xl:[&>span:last-child>span]:text-[#4E2FD2]',
+              'md:flex-nowrap md:gap-x-1 md:[&>span]:text-[12px] md:[&>span]:leading-3 md:[&>span]:tracking-normal md:[&>span:first-child]:font-normal md:[&>span:first-child]:text-[#6F7882] md:[&>span:last-child]:font-semibold md:[&>span:last-child]:text-[#4E2FD2] md:[&>span:last-child>span]:font-semibold md:[&>span:last-child>span]:text-[#4E2FD2]',
               isPlan
-                ? '2xl:h-[31px] 2xl:items-center 2xl:gap-x-3'
-                : '2xl:col-start-3 2xl:row-start-1 2xl:gap-x-2',
+                ? 'md:h-[31px] md:items-center md:gap-x-3'
+                : 'md:col-start-3 md:row-start-1 md:h-8 md:flex-col md:items-end md:gap-0 md:[&>span]:h-4 md:[&>span]:text-[14px] md:[&>span]:leading-4 md:[&>span]:tracking-[0.5px] 2xl:h-auto 2xl:w-auto 2xl:flex-row 2xl:items-baseline 2xl:gap-x-2 2xl:[&>span]:h-auto 2xl:[&>span]:text-[16px]',
+              !isPlan &&
+                !line.price.compareAtCents &&
+                !line.price.compareAtLabel &&
+                'md:justify-center 2xl:justify-end',
             )}
           />
         </div>
         <QuantityStepper
           className={cn(
-            'origin-left scale-[0.86] 2xl:col-start-2 2xl:row-start-1 2xl:h-7 2xl:w-[72px] 2xl:scale-100 2xl:justify-between 2xl:gap-0 2xl:rounded-[4px] 2xl:border-0 2xl:bg-transparent 2xl:px-0 2xl:[&_button]:min-h-5 2xl:[&_button]:min-w-5 2xl:[&_button>span]:h-5 2xl:[&_button>span]:w-5 2xl:[&_button>span]:rounded-[4px] 2xl:[&_button>span]:border 2xl:[&_button>span]:border-[#CED6DE] 2xl:[&_output]:min-w-[8px] 2xl:[&_output]:text-[16px] 2xl:[&_output]:font-normal 2xl:[&_output]:leading-5 2xl:[&_svg]:h-3 2xl:[&_svg]:w-3',
-            isPlan && '2xl:hidden',
+            'origin-left scale-[0.86] md:col-start-2 md:row-start-1 md:h-7 md:w-[72px] md:scale-100 md:justify-between md:gap-0 md:rounded-[4px] md:border-0 md:bg-transparent md:px-0 md:py-1 md:[&_button]:min-h-5 md:[&_button]:min-w-5 md:[&_button>span]:h-5 md:[&_button>span]:w-5 md:[&_button>span]:rounded-[4px] md:[&_button>span]:border md:[&_button>span]:border-[#CED6DE] md:[&_output]:min-w-[8px] md:[&_output]:text-[14px] md:[&_output]:font-semibold md:[&_output]:leading-4 md:[&_svg]:h-3 md:[&_svg]:w-3',
+            isPlan && 'md:hidden',
           )}
           decreaseLabel={`Decrease ${line.name} quantity`}
           disabled={line.readonly}
@@ -315,6 +329,73 @@ function ReviewLineName({ line }: { line: ComputedReviewLine }) {
   }
 
   return line.name
+}
+
+function ReviewSummaryCompact({
+  message,
+  onCheckout,
+  onSave,
+  totals,
+}: {
+  message: string | null
+  onCheckout: () => void
+  onSave: () => void
+  totals: ReviewTotals
+}) {
+  return (
+    <div className="hidden md:ml-[20px] md:flex md:w-[350px] md:flex-col md:gap-[10px] 2xl:hidden">
+      <div className="flex w-full flex-col gap-1">
+        <div className="flex h-[78px] w-full items-start justify-between">
+          <AssetPlaceholder
+            asset={bundleBuilderData.reviewPanel.guarantee.image}
+            className="h-[78px] w-[78px] shrink-0"
+          />
+
+          <div className="flex h-[78px] w-[145px] flex-col items-end gap-2">
+            <p className="flex h-[18px] w-[113px] items-center justify-center overflow-hidden whitespace-nowrap rounded-[3px] bg-[#4E2FD2] px-2 py-[5px] text-[12px] font-normal leading-none tracking-[-0.6px] text-white">
+              {bundleBuilderData.reviewPanel.financingLabel}
+            </p>
+
+            <div className="flex h-8 w-[145px] items-center justify-end gap-2 text-right">
+              <span className="flex h-5 w-[60px] items-center justify-end whitespace-nowrap text-[18px] font-medium leading-5 tracking-[0.25px] text-[#6F7882] line-through">
+                {formatCurrency(totals.compareAtCents)}
+              </span>
+              <span className="flex h-8 items-center justify-end whitespace-nowrap text-[28px] font-semibold leading-8 tracking-[-0.04px] text-[#4E2FD2]">
+                {formatCurrency(totals.priceCents)}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex h-[74px] w-full flex-col gap-1 pt-[10px]">
+          <p className="h-3 w-full text-center text-[12px] font-semibold leading-none tracking-[-0.06px] text-[#00A288]">
+            Congrats! You’re saving {formatCurrency(totals.savingsCents)} on
+            your security bundle!
+          </p>
+
+          <Button
+            className="h-12 min-h-12 w-full gap-2 !rounded-[4px] border-[#4E2FD2] bg-[#4E2FD2] px-[16px] py-[13px] text-[17px] !font-bold leading-none tracking-normal text-white hover:bg-[#3510D4] [&>span]:flex [&>span]:h-[22px] [&>span]:w-[318px] [&>span]:items-center [&>span]:justify-center"
+            fullWidth
+            onClick={onCheckout}
+          >
+            {bundleBuilderData.reviewPanel.actions.checkoutLabel}
+          </Button>
+        </div>
+      </div>
+
+      <Button
+        className="h-[17px] min-h-[17px] w-full rounded-none border-transparent bg-transparent !p-0 text-center text-[14px] !font-normal italic leading-[1.2] !tracking-[-0.02px] !text-[#484848] underline decoration-solid !underline-offset-0 hover:bg-transparent hover:!text-[#484848] [&>span]:h-[17px] [&>span]:w-full"
+        fullWidth
+        onClick={onSave}
+        variant="link"
+      >
+        {bundleBuilderData.reviewPanel.actions.saveLabel}
+      </Button>
+      <div aria-live="polite" className="sr-only">
+        {message}
+      </div>
+    </div>
+  )
 }
 
 function ReviewSummary2xl({
@@ -400,12 +481,12 @@ function ShippingRow() {
   const shipping = bundleBuilderData.reviewPanel.shipping
 
   return (
-    <div className="flex items-center justify-between gap-3 rounded-card bg-surface p-3 xl:p-2 2xl:h-[57px] 2xl:w-full 2xl:rounded-none 2xl:border-t 2xl:border-[#CED6DE] 2xl:bg-transparent 2xl:px-0 2xl:pb-0 2xl:pt-[15px]">
-      <div className="flex items-center gap-3 2xl:gap-4">
-        <span className="flex h-11 w-11 items-center justify-center 2xl:h-[41px] 2xl:w-[41px] 2xl:rounded-[5px] 2xl:bg-white">
+    <div className="flex items-center justify-between gap-3 rounded-card bg-surface p-3 md:ml-[20px] md:h-[57px] md:w-[350px] md:rounded-none md:border-t md:border-[#CED6DE] md:bg-transparent md:px-0 md:pb-0 md:pt-[15px] 2xl:mx-0 2xl:w-full">
+      <div className="flex items-center gap-3 md:gap-4">
+        <span className="flex h-11 w-11 items-center justify-center md:h-[41px] md:w-[41px] md:rounded-[5px] md:bg-white">
           <Icon name="fast-shipping" size={29} />
         </span>
-        <p className="text-sm font-semibold text-text 2xl:text-[18px] 2xl:font-normal 2xl:leading-4 2xl:tracking-[0.5px] 2xl:text-[#0B0D10]">
+        <p className="text-sm font-semibold text-text md:text-[14px] md:font-medium md:leading-4 md:tracking-[0.5px] md:text-[#0B0D10] 2xl:text-[18px] 2xl:font-normal">
           {shipping.label}
         </p>
       </div>
@@ -417,7 +498,7 @@ function ShippingRow() {
         priceCents={shipping.price.priceCents}
         priceLabel={shipping.price.priceLabel}
         size="sm"
-        className="2xl:flex-nowrap 2xl:gap-x-2 2xl:[&>span]:text-[16px] 2xl:[&>span]:leading-4 2xl:[&>span]:tracking-[0.5px] 2xl:[&>span:first-child]:font-normal 2xl:[&>span:first-child]:text-[#6F7882] 2xl:[&>span:last-child]:font-semibold 2xl:[&>span:last-child]:text-[#4E2FD2]"
+        className="md:h-8 md:w-[39px] md:flex-col md:flex-nowrap md:items-end md:gap-0 md:[&>span]:h-4 md:[&>span]:text-[14px] md:[&>span]:leading-4 md:[&>span]:tracking-[0.5px] md:[&>span:first-child]:font-normal md:[&>span:first-child]:text-[#6F7882] md:[&>span:last-child]:font-semibold md:[&>span:last-child]:text-[#4E2FD2] 2xl:h-auto 2xl:w-auto 2xl:flex-row 2xl:items-baseline 2xl:gap-x-2 2xl:[&>span]:h-auto 2xl:[&>span]:text-[16px]"
       />
     </div>
   )
