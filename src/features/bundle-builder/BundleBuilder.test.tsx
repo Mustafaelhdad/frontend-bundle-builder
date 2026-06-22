@@ -41,6 +41,24 @@ describe('BundleBuilder included selections', () => {
     expect(planHeader).toHaveTextContent('1 selected')
   })
 
+  it('shows the plan price without quantity controls in the review panel', () => {
+    const { container } = render(<BundleBuilder />)
+    const reviewPanel = within(
+      getRequiredElement<HTMLElement>(container, 'aside'),
+    )
+
+    expect(
+      reviewPanel.getByText(
+        (_, element) => element?.textContent === '$9.99/mo',
+      ),
+    ).toBeInTheDocument()
+    expect(
+      reviewPanel.queryByRole('group', {
+        name: 'Cam Unlimited quantity',
+      }),
+    ).not.toBeInTheDocument()
+  })
+
   it('keeps the hub required while allowing the motion sensor to be removed and re-added', () => {
     const { container } = render(<BundleBuilder />)
     const sensorsHeader = getRequiredElement<HTMLButtonElement>(
