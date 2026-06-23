@@ -134,5 +134,4 @@ src/
   store/                    Zustand store (quantities, steps, persistence)
   components/ui/            Reusable primitives (Button, PriceDisplay, QuantityStepper, Icon)
   features/bundle-builder/  BundleBuilder + accordion, product cards, review panel
-docs/figma-audit.md         Notes from inspecting the Figma source
 ```
