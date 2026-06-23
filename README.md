@@ -5,7 +5,10 @@ left-hand accordion builder and a right-hand live review panel that stays in syn
 shopper configures their security system.
 
 > Design reference (Figma):
-> https://www.figma.com/design/3Z0rdwxCKa2RwRbb6h0f15/Untitled?node-id=0-1
+> https://www.figma.com/design/JYf61etQVqeseX7oY5alGz/Frontend-Test-Figma?node-id=68-8088&p=f&t=GqMJc9kIp6vObBPo-0
+
+> Deployment:
+> https://frontend-bundle-builder.onrender.com/
 
 ## Stack
 
