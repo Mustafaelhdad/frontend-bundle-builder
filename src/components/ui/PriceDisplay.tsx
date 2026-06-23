@@ -13,6 +13,7 @@ export type PriceDisplayProps = {
   locale?: string
   size?: PriceDisplaySize
   align?: 'start' | 'end'
+  wrap?: boolean
   className?: string
 }
 
@@ -33,6 +34,7 @@ export function PriceDisplay({
   priceCents,
   priceLabel,
   size = 'md',
+  wrap = true,
 }: PriceDisplayProps) {
   const priceText =
     priceLabel ?? formatCurrency({ cents: priceCents, currency, locale })
@@ -48,7 +50,8 @@ export function PriceDisplay({
   return (
     <div
       className={cn(
-        'flex flex-wrap items-baseline gap-x-2 gap-y-1',
+        'flex items-baseline gap-x-2 gap-y-1',
+        wrap ? 'flex-wrap' : 'flex-nowrap',
         align === 'end' && 'justify-end text-right',
         className,
       )}

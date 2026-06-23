@@ -16,9 +16,9 @@ export function VariantSelector({
   variants,
 }: VariantSelectorProps) {
   return (
-    <fieldset className="min-w-0 2xl:w-[205px]">
+    <fieldset className="min-w-0 w-[205px] md:w-auto 2xl:w-[205px]">
       <legend className="sr-only">Choose color for product {productId}</legend>
-      <div className="flex flex-wrap gap-2 md:gap-[6px] 2xl:flex-nowrap 2xl:gap-[5px]">
+      <div className="flex flex-nowrap gap-[5px] md:flex-wrap md:gap-[6px] 2xl:flex-nowrap 2xl:gap-[5px]">
         {variants.map((variant) => {
           const isActive = variant.id === activeVariantId
 
@@ -26,10 +26,10 @@ export function VariantSelector({
             <button
               aria-pressed={isActive}
               className={cn(
-                'flex min-h-11 items-center justify-center gap-1.5 rounded-chip border bg-surface px-2 py-1 text-xs font-medium text-text transition-colors focus-visible:outline-none md:h-[26px] md:min-h-[26px] md:w-[65px] md:shrink-0 md:gap-1 md:rounded-[2px] md:border-[0.5px] md:px-[3px] md:py-px md:text-[10px] md:font-medium md:leading-none md:tracking-[0.6px] 2xl:font-normal',
+                'flex h-[26px] min-h-[26px] w-[65px] shrink-0 items-center justify-center gap-1 rounded-[2px] border-[0.5px] bg-surface px-[3px] py-px text-[10px] font-normal leading-none tracking-[0.6px] text-text transition-colors focus-visible:outline-none md:font-medium 2xl:font-normal',
                 isActive
-                  ? 'border-primary ring-2 ring-primary/20 md:border-[#0AA288] md:bg-[#1DF0BB]/[0.04] md:ring-0'
-                  : 'border-border hover:border-primary md:hover:border-[#0AA288]',
+                  ? 'border-[#0AA288] bg-[#1DF0BB]/[0.04]'
+                  : 'border-border hover:border-[#0AA288]',
               )}
               key={variant.id}
               onClick={() => onSelect(variant.id)}

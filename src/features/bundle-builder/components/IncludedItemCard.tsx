@@ -30,45 +30,48 @@ export function IncludedItemCard({ className, item }: IncludedItemCardProps) {
       : null
   const displayName = item.required ? `${item.name} (Required)` : item.name
   const unitPrice = getUnitPrice(item)
+  const hasCompareAtPrice =
+    typeof unitPrice.compareAtCents === 'number' ||
+    Boolean(unitPrice.compareAtLabel)
 
   return (
     <article
       className={cn(
-        'relative flex min-h-[331px] flex-col rounded-card border bg-surface p-[11px] shadow-sm transition-colors md:grid md:min-h-[159px] md:grid-cols-[101px_minmax(0,1fr)] md:gap-x-[19px] md:rounded-[10px] md:p-[11px] md:shadow-none 2xl:flex 2xl:h-[331.1px] 2xl:min-h-[331.1px] 2xl:w-[224.6px] 2xl:shrink-0 2xl:flex-col 2xl:rounded-[10px] 2xl:border-0 2xl:px-[11px] 2xl:py-[15px]',
+        'relative flex h-[331.1px] min-h-[331.1px] w-[224.6px] shrink-0 flex-col rounded-[10px] border-0 bg-surface px-[11px] py-[15px] transition-shadow md:grid md:h-auto md:min-h-[159px] md:w-auto md:shrink md:grid-cols-[101px_minmax(0,1fr)] md:gap-x-[19px] md:p-[11px] 2xl:flex 2xl:h-[331.1px] 2xl:min-h-[331.1px] 2xl:w-[224.6px] 2xl:shrink-0 2xl:flex-col 2xl:px-[11px] 2xl:py-[15px]',
         quantity > 0
-          ? 'border-primary ring-2 ring-primary/20 md:ring-0 md:shadow-[inset_0_0_0_2px_rgb(78_47_210_/_70%)]'
-          : 'border-transparent',
+          ? 'shadow-[inset_0_0_0_2px_rgb(78_47_210_/_70%)]'
+          : 'shadow-none',
         className,
       )}
     >
       {badgeLabel ? (
-        <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-1 text-[11px] font-semibold text-white md:left-[11px] md:top-[11px] md:h-[19px] md:px-[6px] md:py-[2px] md:text-[12px] md:leading-[15px] 2xl:top-[15px] 2xl:h-[15px] 2xl:px-[5px] 2xl:py-0 2xl:text-[12px] 2xl:leading-[15px]">
+        <span className="absolute left-[11px] top-[15px] h-[15px] rounded-full bg-primary px-[5px] py-0 text-[12px] font-semibold leading-[15px] text-white md:top-[11px] md:h-[19px] md:px-[6px] md:py-[2px] 2xl:top-[15px] 2xl:h-[15px] 2xl:px-[5px] 2xl:py-0">
           {badgeLabel}
         </span>
       ) : null}
 
-      <div className="flex justify-center pt-8 md:h-full md:w-full md:items-center md:pt-0 2xl:h-[117.39px] 2xl:w-full 2xl:shrink-0 2xl:overflow-hidden 2xl:rounded-[5px]">
+      <div className="flex h-[117.39px] w-full shrink-0 items-center justify-center overflow-hidden rounded-[5px] md:h-full md:shrink 2xl:h-[117.39px] 2xl:shrink-0">
         <AssetPlaceholder
           asset={item.image}
-          className="flex h-[101px] w-[101px] items-center justify-center md:h-[137px] md:w-[101px] md:rounded-[5px] 2xl:h-full 2xl:w-full"
+          className="flex h-full w-full items-center justify-center md:h-[137px] md:w-[101px] 2xl:h-full 2xl:w-full"
         />
       </div>
 
-      <div className="mt-[13px] flex flex-1 flex-col gap-[13px] md:mt-0 md:min-h-[137px] md:min-w-0 md:gap-[10px] md:py-0 2xl:mt-[19px] 2xl:min-h-[136px] 2xl:flex-none 2xl:gap-[10px]">
-        <div className="min-w-0 space-y-2 md:space-y-2 2xl:space-y-1">
-          <h3 className="text-lg font-semibold leading-none tracking-[0.033em] text-text md:text-[16px] md:leading-none md:tracking-[0.6px] 2xl:text-[18px] 2xl:leading-[18px]">
+      <div className="mt-[19px] flex min-h-[136px] min-w-0 flex-none flex-col gap-[10px] md:mt-0 md:min-h-[137px] md:flex-1 md:py-0 2xl:mt-[19px] 2xl:min-h-[136px] 2xl:flex-none">
+        <div className="min-w-0 space-y-1 md:space-y-2 2xl:space-y-1">
+          <h3 className="text-[18px] font-semibold leading-[18px] tracking-[0.033em] text-text md:text-[16px] md:leading-none md:tracking-[0.6px] 2xl:text-[18px] 2xl:leading-[18px]">
             {displayName}
           </h3>
           {item.description ? (
-            <p className="min-w-0 text-sm leading-[1.3] tracking-[0.043em] text-text-muted md:text-[12px] md:leading-[1.3] md:tracking-[0.6px] md:text-[#575757] 2xl:text-[14px] 2xl:leading-[1.3]">
+            <p className="min-w-0 text-[14px] leading-[1.3] tracking-[0.043em] text-text-muted md:text-[12px] md:tracking-[0.6px] md:text-[#575757] 2xl:text-[14px]">
               {item.description}
             </p>
           ) : null}
         </div>
 
-        <div className="mt-auto flex items-end justify-between gap-3 md:h-[35px] md:shrink-0 md:items-center md:gap-[10px] 2xl:h-7 2xl:items-end">
+        <div className="mt-auto flex h-7 w-full min-w-0 items-center justify-between gap-0 md:h-[35px] md:shrink-0 md:items-center 2xl:h-7 2xl:items-end">
           <QuantityStepper
-            className="md:h-[35px] md:w-20 md:shrink-0 md:justify-center md:gap-[10px] md:rounded-[4px] md:border-0 md:bg-transparent md:px-0 md:py-1 2xl:h-7 2xl:py-0 md:[&_button]:h-5 md:[&_button]:min-h-5 md:[&_button]:w-5 md:[&_button]:min-w-5 md:[&_button>span]:h-5 md:[&_button>span]:w-5 md:[&_button>span]:rounded-[4px] md:[&_button>span]:border-2 md:[&_button>span]:border-[#E6EBF0] md:[&_button:last-child>span]:border-0 md:[&_button:last-child>span]:bg-[#F0F4F7] md:[&_output]:min-w-[10px] md:[&_output]:text-[16px] md:[&_output]:font-normal md:[&_output]:leading-5 md:[&_svg]:h-3 md:[&_svg]:w-3"
+            className="h-7 w-20 shrink-0 justify-center gap-[10px] rounded-[4px] border-0 bg-transparent px-0 py-0 md:h-[35px] md:py-1 2xl:h-7 2xl:py-0 [&_button]:h-5 [&_button]:min-h-5 [&_button]:w-5 [&_button]:min-w-5 [&_button>span]:h-5 [&_button>span]:w-5 [&_button>span]:rounded-[4px] [&_button>span]:border-2 [&_button>span]:border-[#E6EBF0] [&_button:last-child>span]:border-0 [&_button:last-child>span]:bg-[#F0F4F7] [&_output]:min-w-[10px] [&_output]:text-[16px] [&_output]:font-normal [&_output]:leading-5 [&_svg]:h-3 [&_svg]:w-3"
             decreaseLabel={`Decrease ${item.name} quantity`}
             disabled={item.quantity.readonly}
             increaseLabel={`Increase ${item.name} quantity`}
@@ -81,7 +84,12 @@ export function IncludedItemCard({ className, item }: IncludedItemCardProps) {
           />
           <PriceDisplay
             billingPeriod={unitPrice.billingPeriod}
-            className="md:h-[35px] md:w-[129.5px] md:shrink-0 md:flex-col md:flex-nowrap md:items-end md:justify-center md:gap-x-0 md:gap-y-[3px] md:text-right 2xl:h-auto 2xl:w-auto 2xl:flex-row 2xl:flex-nowrap 2xl:items-baseline 2xl:justify-start 2xl:gap-x-1 2xl:gap-y-1 2xl:text-left md:[&>span]:whitespace-nowrap md:[&>span]:text-[16px] md:[&>span]:font-normal md:[&>span]:leading-none md:[&>span:first-child]:text-[#D8392B] md:[&>span:last-child]:text-[#575757]"
+            className={cn(
+              'min-w-max shrink-0 flex-row items-baseline justify-end gap-x-1 gap-y-0 text-right [&>span]:whitespace-nowrap [&>span]:text-[16px] [&>span]:font-normal [&>span]:leading-5 md:[&>span]:leading-none [&>span:first-child]:text-[#D8392B] [&>span:last-child]:text-[#575757]',
+              hasCompareAtPrice &&
+                'md:h-[35px] md:w-[129.5px] md:flex-col md:flex-nowrap md:items-end md:justify-center md:gap-x-0 md:gap-y-[3px] 2xl:h-auto 2xl:w-auto 2xl:flex-row 2xl:items-baseline 2xl:justify-end 2xl:gap-x-1 2xl:gap-y-0',
+              !hasCompareAtPrice && 'max-md:self-center',
+            )}
             compareAtCents={unitPrice.compareAtCents}
             compareAtLabel={unitPrice.compareAtLabel}
             currency={bundleBuilderData.currency}
@@ -89,6 +97,7 @@ export function IncludedItemCard({ className, item }: IncludedItemCardProps) {
             priceCents={unitPrice.priceCents}
             priceLabel={unitPrice.priceLabel}
             size="sm"
+            wrap={false}
           />
         </div>
       </div>

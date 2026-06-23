@@ -165,7 +165,7 @@ export function AccordionStep({
           {cardCount > 0 ? (
             <div
               className={cn(
-                'grid grid-cols-[repeat(auto-fit,minmax(min(100%,210px),1fr))] gap-[13px]',
+                'flex w-full min-w-0 max-w-full gap-[13px] overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-[repeat(auto-fit,224.6px)] sm:justify-center sm:overflow-visible sm:pb-0',
                 cardCount >= 5
                   ? 'md:grid-cols-2 md:gap-[15px] 2xl:grid-cols-[repeat(5,224.6px)] 2xl:justify-center 2xl:gap-[17px]'
                   : 'sm:grid-cols-[repeat(auto-fit,224.6px)] sm:justify-center md:grid-cols-2 md:justify-stretch md:gap-[15px] 2xl:grid-cols-[repeat(auto-fit,224.6px)] 2xl:justify-center 2xl:gap-[17px]',
@@ -199,7 +199,7 @@ export function AccordionStep({
           {step.nextButtonLabel && onNext ? (
             <div className="mt-[20px] flex justify-center 2xl:mt-[10px]">
               <Button
-                className="w-full rounded-[6px] sm:w-auto md:h-[39px] md:min-h-[39px] md:min-w-[266px] md:max-w-full md:whitespace-nowrap md:rounded-[7px] md:border-[#4E2FD2] md:px-6 md:py-[5px] md:text-[18px] md:leading-6 md:tracking-normal md:text-[#4E2FD2]"
+                className="w-full max-md:!rounded-[7px] sm:w-auto md:h-[39px] md:min-h-[39px] md:min-w-[266px] md:max-w-full md:whitespace-nowrap md:rounded-[7px] md:border-[#4E2FD2] md:px-6 md:py-[5px] md:text-[18px] md:leading-6 md:tracking-normal md:text-[#4E2FD2]"
                 onClick={onNext}
                 variant="outline"
               >
@@ -215,7 +215,7 @@ export function AccordionStep({
 
 function getCompactCardClassName(index: number, cardCount: number) {
   if (cardCount % 2 === 1 && cardCount > 1 && index === cardCount - 1) {
-    return 'md:col-span-2 md:mx-auto md:w-[calc((100%_-_15px)/2)] 2xl:col-span-1 2xl:mx-0 2xl:w-[224.6px]'
+    return 'md:col-span-2 md:mx-auto md:!w-[calc((100%_-_15px)/2)] 2xl:col-span-1 2xl:mx-0 2xl:!w-[224.6px]'
   }
 
   return undefined
