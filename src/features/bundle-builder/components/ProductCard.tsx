@@ -105,7 +105,7 @@ export function ProductCard({ className, product }: ProductCardProps) {
 
         <div
           className={cn(
-            'mt-auto flex h-7 w-full min-w-0 items-center justify-between gap-0 md:h-[35px] md:shrink-0 md:items-center 2xl:h-7 2xl:items-end',
+            'mt-auto flex h-7 w-full min-w-0 items-center justify-between gap-0 md:h-[35px] md:shrink-0 md:items-center 2xl:h-7 2xl:items-center',
             hasVariants && '2xl:mt-0',
           )}
         >

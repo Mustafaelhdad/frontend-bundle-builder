@@ -121,7 +121,7 @@ export function ReviewPanel() {
             </div>
           </div>
 
-          <div className="mx-auto flex w-[350px] max-w-[calc(100vw-20px)] flex-col gap-[10px] md:ml-[20px] md:w-[350px] 2xl:mx-auto 2xl:w-auto 2xl:gap-[21px]">
+          <div className="mx-auto flex w-[350px] max-w-[calc(100vw-20px)] flex-col gap-[10px] md:ml-[20px] md:w-[350px] 2xl:mx-0 2xl:w-full 2xl:gap-[21px]">
             {bundleBuilderData.reviewPanel.categories.map((category) => {
               const categoryLines = reviewLines.filter(
                 (line) => line.categoryId === category.id,
